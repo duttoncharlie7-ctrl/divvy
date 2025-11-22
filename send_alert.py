@@ -28,7 +28,7 @@ def send_message(text):
 
 def main():
     data = analyze_data()
-    stations = data["stations"]
+    stations = data["filtered_stations"]
 
     if not stations:
         send_message("No station data found.")
