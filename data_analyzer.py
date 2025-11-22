@@ -56,26 +56,28 @@ def analyze_data():
             if all(kw.lower() in name for kw in and_keywords):
                 filtered_stations.append({
                     'name': row.get('name'),
-                    'num_bikes': int(row.get('num_bikes', 0)),
-                    'num_ebikes': int(row.get('num_ebikes', 0)),
-                    'num_docks_available': int(row.get('num_docks_available', 0)),
-                    'is_renting': bool(row.get('is_renting', 0))
+                    'ebikes': int(row.get('num_ebikes', 0)),
+                    'regular_bikes': int(row.get('num_bikes', 0)),
+                    'docks_available': int(row.get('num_docks_available', 0)),
+                    'is_renting': bool(row.get('is_renting', 0)),
+                    'status_up': bool(row.get('is_installed', 0))
                 })
-            # OR condition
+
+            # OR condition   
             elif or_keywords and any(kw.lower() in name for kw in or_keywords):
                 filtered_stations.append({
                     'name': row.get('name'),
-                    'num_bikes': int(row.get('num_bikes', 0)),
-                    'num_ebikes': int(row.get('num_ebikes', 0)),
-                    'num_docks_available': int(row.get('num_docks_available', 0)),
-                    'is_renting': bool(row.get('is_renting', 0))
+                    'ebikes': int(row.get('num_ebikes', 0)),
+                    'regular_bikes': int(row.get('num_bikes', 0)),
+                    'docks_available': int(row.get('num_docks_available', 0)),
+                    'is_renting': bool(row.get('is_renting', 0)),
+                    'status_up': bool(row.get('is_installed', 0))
                 })
-
+        
     return {
         'filtered_stations': filtered_stations,
         'last_updated_ts': int(datetime.now().timestamp())
     }
-
+    
 if __name__ == '__main__':
     pprint.pprint(analyze_data())
-
