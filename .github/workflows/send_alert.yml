@@ -4,8 +4,8 @@ name: Divvy Bot Alerts
 on:
   schedule:
     # cron uses UTC time! Adjust accordingly (e.g., CST = UTC-6)
-    - cron: '30 13 * * *'   # 7:30 AM CST
-    - cron: '22 22 * * *'   # 4:00 PM CST
+    - cron: '30 13 * * *'   # 7:00 AM CST
+    - cron: '22 22 * * *'   # 3:30 PM CST
   workflow_dispatch:       # Allows manual trigger
 
 jobs:
